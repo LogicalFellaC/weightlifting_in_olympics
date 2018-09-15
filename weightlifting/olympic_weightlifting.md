@@ -1,7 +1,7 @@
 Olympic Weightlifting
 ================
 Christopher Oh
-2018-08-28
+2018-09-14
 
 -   [Set Up](#set-up)
     -   [Library](#library)
@@ -11,7 +11,8 @@ Christopher Oh
     -   [By country](#by-country)
     -   [Most decorated athletes](#most-decorated-athletes)
 -   [Heights](#heights)
-    -   [Height in each of the most recent weight classes (until 2016)](#height-in-each-of-the-most-recent-weight-classes-until-2016)
+    -   [Height in each of the most recent weight classes Men's (2000 - 2016)](#height-in-each-of-the-most-recent-weight-classes-mens-2000---2016)
+    -   [Height in each of the most recent weight classes Women's (2000 - 2016)](#height-in-each-of-the-most-recent-weight-classes-womens-2000---2016)
     -   [Height of the superheavies over the years](#height-of-the-superheavies-over-the-years)
 -   [Weights](#weights)
     -   [Avg weight of superheavies over the years](#avg-weight-of-superheavies-over-the-years)
@@ -1235,7 +1236,7 @@ Bronze
 Heights
 -------
 
-#### Height in each of the most recent weight classes (until 2016)
+#### Height in each of the most recent weight classes Men's (2000 - 2016)
 
 ``` r
 weightlifting %>% 
@@ -1255,13 +1256,41 @@ weightlifting %>%
   ) %>% 
   ggplot(aes(Event, mean_height)) +
   geom_col() +
-  scale_y_continuous(breaks = seq(0, 180, 15)) +
+  scale_y_continuous(breaks = seq(0, 190, 10)) +
   theme(
     axis.text.x = element_text(size = 6)
   )
 ```
 
 <img src="olympic_weightlifting_files/figure-markdown_github/unnamed-chunk-7-1.png" width="100%" />
+
+#### Height in each of the most recent weight classes Women's (2000 - 2016)
+
+``` r
+weightlifting %>% 
+  filter(
+    Year > 1996,
+    Sex %in% "F"
+  ) %>% 
+  group_by(Event) %>% 
+  summarize(
+    mean_height = mean(Height, na.rm = TRUE),
+    mean_weight = mean(Weight, na.rm = TRUE)
+  ) %>% 
+  mutate(
+    Event =
+      str_extract(Event, "\\S+$") %>% 
+      fct_reorder(mean_weight)
+  ) %>% 
+  ggplot(aes(Event, mean_height)) +
+  geom_col() +
+  scale_y_continuous(breaks = seq(0, 190, 10)) +
+  theme(
+    axis.text.x = element_text(size = 6)
+  )
+```
+
+<img src="olympic_weightlifting_files/figure-markdown_github/unnamed-chunk-8-1.png" width="100%" />
 
 #### Height of the superheavies over the years
 
@@ -1285,7 +1314,7 @@ weightlifting %>%
 
     ## Warning: Removed 1 rows containing missing values (position_stack).
 
-<img src="olympic_weightlifting_files/figure-markdown_github/unnamed-chunk-8-1.png" width="100%" />
+<img src="olympic_weightlifting_files/figure-markdown_github/unnamed-chunk-9-1.png" width="100%" />
 
 Weights
 -------
@@ -1309,4 +1338,4 @@ weightlifting %>%
   geom_col()
 ```
 
-<img src="olympic_weightlifting_files/figure-markdown_github/unnamed-chunk-9-1.png" width="100%" />
+<img src="olympic_weightlifting_files/figure-markdown_github/unnamed-chunk-10-1.png" width="100%" />
