@@ -1257,6 +1257,7 @@ weightlifting %>%
   ggplot(aes(Event, mean_height)) +
   geom_col() +
   scale_y_continuous(breaks = seq(0, 190, 10)) +
+  labs(title = "Avg height Men's (2000 - 2016)") +
   theme(
     axis.text.x = element_text(size = 6)
   )
@@ -1285,6 +1286,7 @@ weightlifting %>%
   ggplot(aes(Event, mean_height)) +
   geom_col() +
   scale_y_continuous(breaks = seq(0, 190, 10)) +
+  labs(title = "Avg height Women's (2000 - 2016)") +
   theme(
     axis.text.x = element_text(size = 6)
   )
