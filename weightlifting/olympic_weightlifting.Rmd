@@ -141,22 +141,29 @@ weightlifting %>%
   mutate(Total = Bronze + Gold + Silver) %>% 
   select(Name, Total, Gold, Silver, Bronze) %>% 
   top_n(10, wt = Total) %>% 
+  arrange(desc(Total), desc(Gold), desc(Silver)) %>% 
   kable(caption = "Most Medals")
+```
 
+```{r}
 weightlifting %>% 
   filter(Medal %in% "Gold") %>% 
   count(Name, Medal) %>% 
   top_n(10, wt = n) %>% 
   arrange(desc(n)) %>% 
   kable(caption = "Most Golds")
+```
 
+```{r}
 weightlifting %>% 
   filter(Medal %in% "Silver") %>% 
   count(Name, Medal) %>% 
   top_n(10, wt = n) %>% 
   arrange(desc(n)) %>% 
   kable(caption = "Most Silvers")
+```
 
+```{r}
 weightlifting %>% 
   filter(Medal %in% "Bronze") %>% 
   count(Name, Medal) %>% 
@@ -170,7 +177,7 @@ weightlifting %>%
 
 #### Height in each of the most recent weight classes Men's (2000 - 2016)
 
-```{r}
+```{r, include=FALSE}
 weightlifting %>% 
   filter(
     Year > 1996,
@@ -195,31 +202,47 @@ weightlifting %>%
   )
 ```
 
+```{r, warning=FALSE}
+weightlifting %>% 
+  filter(
+    Year > 1996,
+    Sex %in% "M"
+  ) %>%
+  mutate(
+    Event = 
+      str_extract(Event, "\\S+$") %>% 
+      fct_reorder(Weight, fun = median) %>% 
+      fct_relevel("Bantamweight")
+  ) %>% 
+  ggplot(aes(Event, Height)) +
+  geom_boxplot() +
+  labs(
+    title = "Height distribution by weight class - Men's (2000 - 2016)",
+    x = "Weight class"
+  ) +
+  theme(axis.text.x = element_text(size = 6))
+```
+
 #### Height in each of the most recent weight classes Women's (2000 - 2016)
 
-```{r}
+```{r, warning=FALSE}
 weightlifting %>% 
   filter(
     Year > 1996,
     Sex %in% "F"
-  ) %>% 
-  group_by(Event) %>% 
-  summarize(
-    mean_height = mean(Height, na.rm = TRUE),
-    mean_weight = mean(Weight, na.rm = TRUE)
-  ) %>% 
+  ) %>%
   mutate(
-    Event =
+    Event = 
       str_extract(Event, "\\S+$") %>% 
-      fct_reorder(mean_weight)
+      fct_reorder(Weight)
   ) %>% 
-  ggplot(aes(Event, mean_height)) +
-  geom_col() +
-  scale_y_continuous(breaks = seq(0, 190, 10)) +
-  labs(title = "Avg height Women's (2000 - 2016)") +
-  theme(
-    axis.text.x = element_text(size = 6)
-  )
+  ggplot(aes(Event, Height)) +
+  geom_boxplot() +
+  labs(
+    title = "Height distribution by weight class - Women's (2000 - 2016)",
+    x = "Weight class"
+  ) +
+  theme(axis.text.x = element_text(size = 6))
 ```
 
 #### Height of the superheavies over the years

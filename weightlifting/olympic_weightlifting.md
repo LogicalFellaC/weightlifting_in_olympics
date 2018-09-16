@@ -174,6 +174,7 @@ weightlifting %>%
   mutate(Total = Bronze + Gold + Silver) %>% 
   select(Name, Total, Gold, Silver, Bronze) %>% 
   top_n(10, wt = Total) %>% 
+  arrange(desc(Total), desc(Gold), desc(Silver)) %>% 
   kable(caption = "Most Medals")
 ```
 
@@ -203,30 +204,13 @@ Bronze
 <tbody>
 <tr>
 <td style="text-align:left;">
-Akakios Kakiasvili
+Pyrros Dimas
+</td>
+<td style="text-align:right;">
+4
 </td>
 <td style="text-align:right;">
 3
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Arkady Nikitich Vorobyov
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2
 </td>
 <td style="text-align:right;">
 0
@@ -237,186 +221,16 @@ Arkady Nikitich Vorobyov
 </tr>
 <tr>
 <td style="text-align:left;">
-Carlo Galimberti
+Ronny Weller
 </td>
 <td style="text-align:right;">
-3
+4
 </td>
 <td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
 2
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Eko Yuli Irawan
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Halil Mutlu
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Imre Fldi
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Isaac "Ike" Berger
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Louis Hostin
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Manfred Nerlinger
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Marian Zieliski
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-3
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Mohammad Nassiri Seresht
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Naim Sleymanolu
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Nicolae "Nicu" Vlad
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
 </td>
 <td style="text-align:right;">
 1
@@ -458,27 +272,10 @@ Norbert "Norb" Schemansky
 </tr>
 <tr>
 <td style="text-align:left;">
-Peter T. "Pete" George
+Akakios Kakiasvili
 </td>
 <td style="text-align:right;">
 3
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Pyrros Dimas
-</td>
-<td style="text-align:right;">
-4
 </td>
 <td style="text-align:right;">
 3
@@ -487,24 +284,58 @@ Pyrros Dimas
 0
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Ronny Weller
+Halil Mutlu
 </td>
 <td style="text-align:right;">
-4
+3
 </td>
 <td style="text-align:right;">
-1
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Naim Sleymanolu
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Louis Hostin
+</td>
+<td style="text-align:right;">
+3
 </td>
 <td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
 1
+</td>
+<td style="text-align:right;">
+0
 </td>
 </tr>
 <tr>
@@ -539,6 +370,176 @@ Yoshinobu Miyake
 </td>
 <td style="text-align:right;">
 0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Arkady Nikitich Vorobyov
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Carlo Galimberti
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Imre Fldi
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Isaac "Ike" Berger
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Peter T. "Pete" George
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mohammad Nassiri Seresht
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Nicolae "Nicu" Vlad
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Eko Yuli Irawan
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Manfred Nerlinger
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Marian Zieliski
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
 </td>
 </tr>
 </tbody>
@@ -1234,27 +1235,23 @@ weightlifting %>%
   filter(
     Year > 1996,
     Sex %in% "M"
-  ) %>% 
-  group_by(Event) %>% 
-  summarize(
-    mean_height = mean(Height, na.rm = TRUE),
-    mean_weight = mean(Weight, na.rm = TRUE)
-  ) %>% 
+  ) %>%
   mutate(
-    Event =
+    Event = 
       str_extract(Event, "\\S+$") %>% 
-      fct_reorder(mean_weight)
+      fct_reorder(Weight, fun = median) %>% 
+      fct_relevel("Bantamweight")
   ) %>% 
-  ggplot(aes(Event, mean_height)) +
-  geom_col() +
-  scale_y_continuous(breaks = seq(0, 190, 10)) +
-  labs(title = "Avg height Men's (2000 - 2016)") +
-  theme(
-    axis.text.x = element_text(size = 6)
-  )
+  ggplot(aes(Event, Height)) +
+  geom_boxplot() +
+  labs(
+    title = "Height distribution by weight class - Men's (2000 - 2016)",
+    x = "Weight class"
+  ) +
+  theme(axis.text.x = element_text(size = 6))
 ```
 
-<img src="olympic_weightlifting_files/figure-markdown_github/unnamed-chunk-8-1.png" width="100%" />
+<img src="olympic_weightlifting_files/figure-markdown_github/unnamed-chunk-12-1.png" width="100%" />
 
 #### Height in each of the most recent weight classes Women's (2000 - 2016)
 
@@ -1263,27 +1260,22 @@ weightlifting %>%
   filter(
     Year > 1996,
     Sex %in% "F"
-  ) %>% 
-  group_by(Event) %>% 
-  summarize(
-    mean_height = mean(Height, na.rm = TRUE),
-    mean_weight = mean(Weight, na.rm = TRUE)
-  ) %>% 
+  ) %>%
   mutate(
-    Event =
+    Event = 
       str_extract(Event, "\\S+$") %>% 
-      fct_reorder(mean_weight)
+      fct_reorder(Weight)
   ) %>% 
-  ggplot(aes(Event, mean_height)) +
-  geom_col() +
-  scale_y_continuous(breaks = seq(0, 190, 10)) +
-  labs(title = "Avg height Women's (2000 - 2016)") +
-  theme(
-    axis.text.x = element_text(size = 6)
-  )
+  ggplot(aes(Event, Height)) +
+  geom_boxplot() +
+  labs(
+    title = "Height distribution by weight class - Women's (2000 - 2016)",
+    x = "Weight class"
+  ) +
+  theme(axis.text.x = element_text(size = 6))
 ```
 
-<img src="olympic_weightlifting_files/figure-markdown_github/unnamed-chunk-9-1.png" width="100%" />
+<img src="olympic_weightlifting_files/figure-markdown_github/unnamed-chunk-13-1.png" width="100%" />
 
 #### Height of the superheavies over the years
 
@@ -1307,7 +1299,7 @@ weightlifting %>%
 
     ## Warning: Removed 1 rows containing missing values (position_stack).
 
-<img src="olympic_weightlifting_files/figure-markdown_github/unnamed-chunk-10-1.png" width="100%" />
+<img src="olympic_weightlifting_files/figure-markdown_github/unnamed-chunk-14-1.png" width="100%" />
 
 Weights
 -------
@@ -1331,4 +1323,4 @@ weightlifting %>%
   geom_col()
 ```
 
-<img src="olympic_weightlifting_files/figure-markdown_github/unnamed-chunk-11-1.png" width="100%" />
+<img src="olympic_weightlifting_files/figure-markdown_github/unnamed-chunk-15-1.png" width="100%" />
