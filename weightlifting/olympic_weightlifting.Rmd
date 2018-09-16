@@ -121,16 +121,19 @@ weightlifting %>%
 
 #### Most decorated athletes
 
-```{r}
-# weightlifting %>% 
-#   filter(!is.na(Medal)) %>% 
-#   count(Name, Medal) %>% 
-#   group_by(Name) %>% 
-#   summarize(medal_count = sum(n)) %>% 
-#   top_n(10, wt = medal_count) %>% 
-#   arrange(desc(medal_count)) %>% 
-#   kable(caption = "Most Medals")
+```{r, include=FALSE}
+weightlifting %>%
+  filter(!is.na(Medal)) %>%
+  count(Name, Medal) %>%
+  group_by(Name) %>%
+  summarize(medal_count = sum(n)) %>%
+  top_n(10, wt = medal_count) %>%
+  arrange(desc(medal_count)) %>%
+  kable(caption = "Most Medals")
+```
 
+
+```{r}
 weightlifting %>% 
   filter(!is.na(Medal)) %>%
   count(Name, Medal) %>% 
@@ -161,6 +164,7 @@ weightlifting %>%
   arrange(desc(n)) %>% 
   kable(caption = "Most Bronzes")
 ```
+
 
 ## Heights
 

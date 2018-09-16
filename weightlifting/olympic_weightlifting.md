@@ -167,15 +167,6 @@ weightlifting %>%
 #### Most decorated athletes
 
 ``` r
-# weightlifting %>% 
-#   filter(!is.na(Medal)) %>% 
-#   count(Name, Medal) %>% 
-#   group_by(Name) %>% 
-#   summarize(medal_count = sum(n)) %>% 
-#   top_n(10, wt = medal_count) %>% 
-#   arrange(desc(medal_count)) %>% 
-#   kable(caption = "Most Medals")
-
 weightlifting %>% 
   filter(!is.na(Medal)) %>%
   count(Name, Medal) %>% 
@@ -1263,7 +1254,7 @@ weightlifting %>%
   )
 ```
 
-<img src="olympic_weightlifting_files/figure-markdown_github/unnamed-chunk-7-1.png" width="100%" />
+<img src="olympic_weightlifting_files/figure-markdown_github/unnamed-chunk-8-1.png" width="100%" />
 
 #### Height in each of the most recent weight classes Women's (2000 - 2016)
 
@@ -1292,7 +1283,7 @@ weightlifting %>%
   )
 ```
 
-<img src="olympic_weightlifting_files/figure-markdown_github/unnamed-chunk-8-1.png" width="100%" />
+<img src="olympic_weightlifting_files/figure-markdown_github/unnamed-chunk-9-1.png" width="100%" />
 
 #### Height of the superheavies over the years
 
@@ -1316,7 +1307,7 @@ weightlifting %>%
 
     ## Warning: Removed 1 rows containing missing values (position_stack).
 
-<img src="olympic_weightlifting_files/figure-markdown_github/unnamed-chunk-9-1.png" width="100%" />
+<img src="olympic_weightlifting_files/figure-markdown_github/unnamed-chunk-10-1.png" width="100%" />
 
 Weights
 -------
@@ -1340,4 +1331,4 @@ weightlifting %>%
   geom_col()
 ```
 
-<img src="olympic_weightlifting_files/figure-markdown_github/unnamed-chunk-10-1.png" width="100%" />
+<img src="olympic_weightlifting_files/figure-markdown_github/unnamed-chunk-11-1.png" width="100%" />
