@@ -1,2 +1,2 @@
 # weightlifting_in_olympics
-Using https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results
+ EDA using https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results
